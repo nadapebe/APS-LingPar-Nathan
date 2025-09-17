@@ -46,4 +46,14 @@ Identificador   = Letra { Letra | Digito | "_" } ;
 Digito          = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 Letra           = "A" | ... | "Z" | "a" | ... | "z" ;
 
+Características da Linguagem
 
+Variáveis: int, bool, com atribuição e inicialização opcional.
+
+Condicionais: if/else com &&, ||, ! e comparações.
+
+Loops: while (cond) { ... }.
+
+Ações: lamp_on() e lamp_off().
+
+Sensores (read-only): sensor(movimento) → bool; sensor(hora) → int (0..23).
