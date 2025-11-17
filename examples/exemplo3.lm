@@ -1,0 +1,24 @@
+program TesteSensores {
+
+  var contador : int = 0 ;
+
+  if (sensor(movimento)) {
+    lamp_on();
+    contador = contador + 1;
+  }
+  
+  if (sensor(hora) >= 20) {
+    lamp_on();
+  } else {
+    if (sensor(hora) < 6) {
+      lamp_on();
+    } else {
+      lamp_off();
+    }
+  }
+  
+  while (contador < 10) {
+    contador = contador + 1;
+  }
+}
+

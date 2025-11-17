@@ -1,0 +1,24 @@
+program TesteBasico {
+
+  var x : int = 10 ;
+  var y : int = 5 ;
+  var resultado : int ;
+
+  resultado = x + y ;
+  
+  if (resultado > 10) {
+    lamp_on();
+  } else {
+    lamp_off();
+  }
+  
+  while (x > 0) {
+    x = x - 1;
+    if (x == 5) {
+      lamp_on();
+    }
+  }
+  
+  lamp_off();
+}
+

@@ -1,0 +1,28 @@
+program LampadaPresenca {
+
+  var N : int = 15 ;
+  var semMov : int = 0 ;
+  var ligada : bool = false ;
+
+  while (true) {
+    if ( (sensor(hora) >= 18 || sensor(hora) <= 5) && sensor(movimento) ) {
+      if (!ligada) {
+        lamp_on();
+        ligada = true;
+        semMov = 0;
+      }
+    } else {
+      if (ligada && !sensor(movimento)) {
+        semMov = semMov + 1;
+        if (semMov >= N) {
+          lamp_off();
+          ligada = false;
+          semMov = 0;
+        }
+      } else {
+        semMov = 0;
+      }
+    }
+  }
+}
+

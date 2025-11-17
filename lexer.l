@@ -2,6 +2,7 @@
 
 %{
 #include "parser.tab.h"
+#include <stdlib.h>
 %}
 
 DIGITO      [0-9]
@@ -48,8 +49,8 @@ NUM         {DIGITO}+
 "}"             { return FECHACH; }
 ";"             { return PONTOVIRG; }
 
-{NUM}           { return NUM; }
-{ID}            { return ID; }
+{NUM}           { yylval.num = atoi(yytext); return NUM; }
+{ID}            { yylval.str = strdup(yytext); return ID; }
 [ \t\r\n]+      ;
 .               ;
 

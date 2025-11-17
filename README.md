@@ -1,5 +1,69 @@
 # APS LingPar Nathan
 
+# LumiMov – Linguagem de Programação para Controle de Lâmpadas
+
+## Sobre o Projeto
+
+Este projeto implementa uma linguagem de programação de alto nível chamada **LumiMov** para controlar lâmpadas através de uma máquina virtual (LampVM). A linguagem foi desenvolvida usando **Flex** (análise léxica) e **Bison** (análise sintática), gerando código Assembly que é executado em uma VM customizada.
+
+## Estrutura do Projeto
+
+- `lexer.l` - Especificação do analisador léxico (Flex)
+- `parser.y` - Especificação do analisador sintático e gerador de código (Bison)
+- `vm.c` - Interpretador/emulador da LampVM
+- `Makefile` - Script de compilação
+- `examples/` - Exemplos de programas em LumiMov
+- `vm_spec.md` - Especificação detalhada da LampVM
+
+## Como Compilar e Usar
+
+### Compilação
+
+```bash
+make clean
+make
+```
+
+Isso irá gerar:
+- `lumimov` - Compilador LumiMov
+- `vm` - Interpretador da LampVM
+
+### Compilando um Programa
+
+```bash
+./lumimov <arquivo_entrada.lm> [arquivo_saida.asm]
+```
+
+Exemplo:
+```bash
+./lumimov examples/exemplo1.lm examples/exemplo1.asm
+```
+
+### Executando na VM
+
+```bash
+./vm <arquivo.asm> [movimento] [hora]
+```
+
+Parâmetros:
+- `movimento`: 0 (sem movimento) ou 1 (com movimento)
+- `hora`: valor de 0 a 23
+
+Exemplo:
+```bash
+./vm examples/exemplo1.asm 1 18
+```
+
+## LampVM - Máquina Virtual
+
+A LampVM possui:
+- **2 Registradores**: R0 (principal), R1 (auxiliar)
+- **Memória**: Variáveis e pilha
+- **Sensores**: movimento (bool), hora (int 0-23)
+- **Instruções**: LOAD, STORE, ADD, SUB, MUL, DIV, PUSH, POP, JMP, JZ, JNZ, SENSOR, LAMP_ON, LAMP_OFF, HALT
+
+A VM é Turing-completa, permitindo implementar qualquer algoritmo computável.
+
 # LumiMov – Especificação em EBNF
 
 ## Objetivo

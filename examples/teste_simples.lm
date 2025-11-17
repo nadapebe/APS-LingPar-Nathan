@@ -1,0 +1,10 @@
+program TesteSimples {
+
+  var x : int = 5 ;
+  var y : int = 3 ;
+  
+  x = x + y ;
+  
+  lamp_on();
+}
+

@@ -1,0 +1,3 @@
+LOAD 0
+STORE x
+HALT

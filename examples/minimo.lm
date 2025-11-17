@@ -1,0 +1,4 @@
+program Minimo {
+  var x : int ;
+}
+
